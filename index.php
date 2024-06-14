@@ -1,68 +1,38 @@
 <div class="card mb-3">
 <div class="card-body">
  <form action="" method="post">
- <div class="row">
-<div class="mb-3 col-md-4">
- <label for="invoice" class="form-label">Invoice</label>
- <input type="text" class="form-control" name="invoice">
+ <div class="row mb-3">
+ <div class="col-md-6">
+ <label for="nama_pelanggan" class="form-label">Nama
+pelanggan</label>
+ <input type="text" class="form-control" name="nama_pelanggan">
  </div>
- <div class="mb-3 col-md-4">
- <label for="jenis-invoice" class="form-label">Jenis
-Invoice</label>
- <select class="form-select" name="jenis-invoice">
- <option value="pembayaran">Pembayaran</option>
- <option value="penjualan">Penjualan</option>
- <option value="pembelian">Pembelian</option>
- </select>
- </div>
- <div class="mb-3 col-md-4">
-<label for="tanggal" class="form-label">Tanggal</label>
- <input type="date" class="form-control" name="tanggal">
+ <div class="col-md-6">
+ <label for="alamat" class="form-label">Alamat</label>
+ <input type="text" class="form-control" name="alamat">
  </div>
  </div>
- <div class="row">
- <div class="mb-3 col-md-4">
-<label for="nama-akun" class="form-label">Nama Akun</label>
- <select class="form-select" name="nama-akun">
- <option value="1">Kas</option>
- <option value="2">Piutang Usaha</option>
- <option value="3">Perlengkapan</option>
- <option value="4">Hutang Usaha</option>
- <option value="5">Modal</option>
- </select>
+ <div class="row mb-3">
+ <div class="col-md-6">
+ <label for="telepon" class="form-label">Telepon</label>
+ <input type="number" class="form-control" name="telepon">
  </div>
- <div class="mb-3 col-md-4">
- <label for="nominal" class="form-label">Nominal</label>
- <input type="number" class="form-control" name="nominal">
- </div>
- <div class="mb-3 col-md-4">
- <label for="type" class="form-label">Type</label>
- <select class="form-select" name="type">
- <option value="debit">Debit</option>
- <option value="kredit">Kredit</option>
- </select>
+ <div class="col-md-6">
+ <label for="email" class="form-label">Email</label>
+ <input type="text" class="form-control" name="email">
  </div>
  </div>
- <div class="row">
- <div class="mb-3 col">
- <label for="keterangan" class="form-label">Keterangan</label>
- <textarea class="form-control" name="keterangan"
-rows="3"></textarea>
- </div>
- </div>
- <hr>
- <div class="row">
- <div class="col text-end">
- <button class="btn btn-secondary" type="reset">Reset</button>
- <button class="btn btn-primary" type="submit">Simpan</button>
-</div>
+ <hr class="text-secondary">
+ <div class="text-end">
+ <button type="reset" class="btn btn-secondary">Reset</button>
+ <button type="submit" class="btn btn-primary">Simpan</button>
  </div>
  </form>
- </div>
+</div>
 </div>
 <div class="card">
  <div class="card-header">
- <h3>Data Jurnal</h3>
+ <h3>Data Pelanggan</h3>
  </div>
  <div class="card-body">
  <div class="table-responsive">
@@ -70,120 +40,84 @@ rows="3"></textarea>
  <thead>
  <tr>
  <th>#</th>
- <th>Invoice</th>
-<th>Jenis Invoice</th>
- <th>Tanggal</th>
- <th>Akun</th>
- <th>Nominal</th>
- <th>Type</th>
- <th>Keterangan</th>
- <th><i class="bi bi-gear-fill"></i></th>
+ <th>Nama Pelanggan</th>
+ <th>Alamat</th>
+ <th>Telepon</th>
+ <th>Email</th>
+<th>
+ <i class="bi bi-gear-fill"></i>
+ </th>
  </tr>
  </thead>
-<tbody>
+ <tbody>
  <tr>
  <td>1</td>
- <td>#PB020324</td>
-<td>Pembelian</td>
- <td>2022-03-20</td>
- <td>Kas</td>
- <td>Rp. 10.000.000</td>
- <td>Debit</td>
- <td>-</td>
+ <td>PT Sejahtera</td>
+ <td>Jln. Raya No. 123</td>
+ <td>081234567890</td>
+ <td>sejahtera@example.com</td>
  <td>
- <a href="#editJurnal" class="text-decoration-none" data-bstoggle="modal">
-<i class="bi bi-pencil-square text-success"></i>
+ <a href="#editPelanggan" class="text-decoration-none" data-bstoggle="modal">
+ <i class="bi bi-pencil-square text-success"></i>
  </a>
  <a href="" class="text-decoration-none">
  <i class="bi bi-trash text-danger"></i>
  </a>
  </td>
  <!-- Modal -->
- <div class="modal fade" id="editJurnal" tabindex="-1"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog">
+ <div class="modal fade" id="editPelanggan" tabindex="-1" arialabelledby="exampleModalLabel" aria-hidden="true">
+ <form action="" method="post">
+ <div class="modal-dialog modal-lg">
  <div class="modal-content">
  <div class="modal-header">
-<h5 class="modal-title"
-id="exampleModalLabel">Edit Jurnal</h5>
+ <h1 class="modal-title fs-5"
+id="exampleModalLabel">Edit Data Pelanggan</h1>
  <button type="button" class="btn-close" data-bsdismiss="modal" aria-label="Close"></button>
  </div>
  <div class="modal-body">
- <div class="row">
- <div class="mb-3 col-md-4">
- <label for="invoice" class="formlabel">Invoice</label>
+ <div class="row mb-3">
+ <div class="col-md-6">
+ <label for="nama_pelanggan" class="formlabel">Nama pelanggan</label>
  <input type="text" class="form-control"
-name="invoice" value="#PB020324">
+name="nama_pelanggan" value="PT Sejahtera">
  </div>
- <div class="mb-3 col-md-4">
- <label for="jenis-invoice" class="formlabel">Jenis Invoice</label>
- <select class="form-select" name="jenisinvoice">
-<option selected
-value="pembayaran">Pembayaran</option>
- <option value="penjualan">Penjualan</option>
- <option value="pembelian">Pembelian</option>
- </select>
- </div>
- <div class="mb-3 col-md-4">
- <label for="tanggal" class="formlabel">Tanggal</label>
- <input type="date" class="form-control"
-name="tanggal" value="2022-03-20">
+ <div class="col-md-6">
+ <label for="alamat" class="formlabel">Alamat</label>
+ <input type="text" class="form-control"
+name="alamat" value="Jln. Raya No. 123">
  </div>
  </div>
- <div class="row">
- <div class="mb-3 col-md-4">
-<label for="nama-akun" class="form-label">Nama
-Akun</label>
- <select class="form-select" name="nama-akun">
- <option selected value="1">Kas</option>
- <option value="2">Piutang Usaha</option>
- <option value="3">Perlengkapan</option>
- <option value="4">Hutang Usaha</option>
- <option value="5">Modal</option>
- </select>
- </div>
- <div class="mb-3 col-md-4">
- <label for="nominal" class="formlabel">Nominal</label>
+ <div class="row mb-3">
+ <div class="col-md-6">
+ <label for="telepon" class="formlabel">Telepon</label>
  <input type="number" class="form-control"
-name="nominal" value="10000000">
- </div>
- <div class="mb-3 col-md-4">
- <label for="type" class="formlabel">Type</label>
- <select class="form-select" name="type">
- <option selected
-value="debit">Debit</option>
-<option value="kredit">Kredit</option>
- </select>
- </div>
- </div>
- <div class="row">
- <div class="mb-3 col">
-<label for="keterangan" class="formlabel">Keterangan</label>
- <textarea class="form-control"
-name="keterangan" rows="3"> - </textarea>
+name="telepon" value="081234567890">
+</div>
+ <div class="col-md-6">
+ <label for="email" class="formlabel">Email</label>
+ <input type="text" class="form-control"
+name="email" value="sejahtera@example.com">
  </div>
  </div>
  </div>
  <div class="modal-footer">
- <button type="button" class="btn btn-secondary"
-data-bs-dismiss="modal">Close</button>
- <button type="button" class="btn btnprimary">Simpan</button>
+ <button type="button" class="btn btn-secondary" databs-dismiss="modal">Close</button>
+ <button type="submit" class="btn btnprimary">Simpan</button>
  </div>
  </div>
  </div>
+ </form>
  </div>
  </tr>
  <tr>
-     <td>2</td>
- <td>#PJ020324</td>
- <td>Penjualan</td>
- <td>2022-03-20</td>
- <td>Kas</td>
- <td>Rp. 10.000.000</td>
- <td>Kredit</td>
- <td>-</td>
+ <td>2</td>
+ <td>CV Maju Bersama</td>
+ <td>Jln. Maju No. 45</td>
+<td>085678901234</td>
+ <td>maju@example.com</td>
  <td>
- <a href="#editJurnal" class="text-decoration-none" databs-toggle="modal">
+ <a href="#editPelanggan" class="text-decoration-none"
+data-bs-toggle="modal">
  <i class="bi bi-pencil-square text-success"></i>
  </a>
  <a href="" class="text-decoration-none">
@@ -192,4 +126,8 @@ data-bs-dismiss="modal">Close</button>
  </td>
  </tr>
  </tbody>
+ </table>
  </div>
+ </div>
+ </div> 
+
