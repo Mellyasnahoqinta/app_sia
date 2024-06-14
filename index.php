@@ -3,23 +3,25 @@
  <form action="" method="post">
  <div class="row mb-3">
  <div class="col-md-6">
- <label for="nama_pelanggan" class="form-label">Nama
-pelanggan</label>
- <input type="text" class="form-control" name="nama_pelanggan">
+ <label for="invoice" class="form-label">Invoice</label>
+ <input type="text" class="form-control" name="invoice">
  </div>
  <div class="col-md-6">
- <label for="alamat" class="form-label">Alamat</label>
- <input type="text" class="form-control" name="alamat">
+ <label for="tanggal" class="form-label">Tanggal</label>
+ <input type="date" class="form-control" name="tanggal">
  </div>
  </div>
  <div class="row mb-3">
  <div class="col-md-6">
- <label for="telepon" class="form-label">Telepon</label>
- <input type="number" class="form-control" name="telepon">
+ <label for="total" class="form-label">Total</label>
+ <div class="input-group">
+ <span class="input-group-text">Rp.</span>
+ <input type="number" class="form-control" name="total">
+ </div>
  </div>
  <div class="col-md-6">
- <label for="email" class="form-label">Email</label>
- <input type="text" class="form-control" name="email">
+ <label for="keterangan" class="form-label">Keterangan</label>
+ <input type="text" class="form-control" name="keterangan">
  </div>
  </div>
  <hr class="text-secondary">
@@ -28,11 +30,11 @@ pelanggan</label>
  <button type="submit" class="btn btn-primary">Simpan</button>
  </div>
  </form>
-</div>
+ </div>
 </div>
 <div class="card">
  <div class="card-header">
- <h3>Data Pelanggan</h3>
+ <h3>Data Pembayaran</h3>
  </div>
  <div class="card-body">
  <div class="table-responsive">
@@ -40,24 +42,22 @@ pelanggan</label>
  <thead>
  <tr>
  <th>#</th>
- <th>Nama Pelanggan</th>
- <th>Alamat</th>
- <th>Telepon</th>
- <th>Email</th>
-<th>
- <i class="bi bi-gear-fill"></i>
- </th>
+ <th>Invoice</th>
+ <th>Tanggal</th>
+ <th>Total</th>
+<th>Keterangan</th>
+ <th><i class="bi bi-gear-fill"></i></th>
  </tr>
  </thead>
  <tbody>
  <tr>
  <td>1</td>
- <td>PT Sejahtera</td>
- <td>Jln. Raya No. 123</td>
- <td>081234567890</td>
- <td>sejahtera@example.com</td>
+ <td>BY110324</td>
+ <td>11/03/2024</td>
+ <td>Rp. 1.000.000,-</td>
+ <td>Pembayaran tagihan indihome</td>
  <td>
- <a href="#editPelanggan" class="text-decoration-none" data-bstoggle="modal">
+ <a href="#editPembayaran" class="text-decoration-none" databs-toggle="modal">
  <i class="bi bi-pencil-square text-success"></i>
  </a>
  <a href="" class="text-decoration-none">
@@ -65,43 +65,44 @@ pelanggan</label>
  </a>
  </td>
  <!-- Modal -->
- <div class="modal fade" id="editPelanggan" tabindex="-1" arialabelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="editPembayaran" tabindex="-1" arialabelledby="exampleModalLabel" aria-hidden="true">
  <form action="" method="post">
  <div class="modal-dialog modal-lg">
  <div class="modal-content">
  <div class="modal-header">
  <h1 class="modal-title fs-5"
-id="exampleModalLabel">Edit Data Pelanggan</h1>
+id="exampleModalLabel">Edit Data Pembayaran</h1>
  <button type="button" class="btn-close" data-bsdismiss="modal" aria-label="Close"></button>
  </div>
  <div class="modal-body">
  <div class="row mb-3">
  <div class="col-md-6">
- <label for="nama_pelanggan" class="formlabel">Nama pelanggan</label>
- <input type="text" class="form-control"
-name="nama_pelanggan" value="PT Sejahtera">
+ <label for="invoice" class="formlabel">Invoice</label>
+ <input type="text" class="form-control"name="invoice" value="BY110324" disabled>
  </div>
  <div class="col-md-6">
- <label for="alamat" class="formlabel">Alamat</label>
- <input type="text" class="form-control"
-name="alamat" value="Jln. Raya No. 123">
+ <label for="tanggal" class="formlabel">Tanggal</label>
+ <input type="date" class="form-control"name="tanggal" value="2024-03-11">
  </div>
  </div>
  <div class="row mb-3">
  <div class="col-md-6">
- <label for="telepon" class="formlabel">Telepon</label>
- <input type="number" class="form-control"
-name="telepon" value="081234567890">
-</div>
+ <label for="total" class="formlabel">Total</label>
+ <div class="input-group">
+ <span class="input-group-text">Rp.</span>
+ <input type="number" class="form-control"name="total" value="1000000">
+ </div>
+ </div>
  <div class="col-md-6">
- <label for="email" class="formlabel">Email</label>
- <input type="text" class="form-control"
-name="email" value="sejahtera@example.com">
+ <label for="keterangan" class="formlabel">Keterangan</label>
+<input type="text" class="form-control"
+name="keterangan" value="Pembayaran tagihan indihome">
  </div>
  </div>
  </div>
  <div class="modal-footer">
- <button type="button" class="btn btn-secondary" databs-dismiss="modal">Close</button>
+ <button type="button" class="btn btn-secondary"
+data-bs-dismiss="modal">Close</button>
  <button type="submit" class="btn btnprimary">Simpan</button>
  </div>
  </div>
@@ -111,13 +112,12 @@ name="email" value="sejahtera@example.com">
  </tr>
  <tr>
  <td>2</td>
- <td>CV Maju Bersama</td>
- <td>Jln. Maju No. 45</td>
-<td>085678901234</td>
- <td>maju@example.com</td>
+ <td>BY100324</td>
+ <td>10/03/2024</td>
+ <td>Rp. 900.000,-</td>
+ <td>Pembayaran tagihan listrik</td>
  <td>
- <a href="#editPelanggan" class="text-decoration-none"
-data-bs-toggle="modal">
+ <a href="" class="text-decoration-none">
  <i class="bi bi-pencil-square text-success"></i>
  </a>
  <a href="" class="text-decoration-none">
@@ -129,5 +129,4 @@ data-bs-toggle="modal">
  </table>
  </div>
  </div>
- </div> 
-
+ </div>
