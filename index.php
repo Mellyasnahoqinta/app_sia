@@ -1,60 +1,155 @@
-<?php
-session_start();
-if(isset($_SESSION['username'])){
-  header('location:dashboard.php');
-}else{
-?>
-<!doctype html>
-<html lang = "en">
-    <head>
-        <meta charset="utf-8">
-        <meta name = "viewport" content="width=device-width, initial-scale=1">
-        <title>SIA | Login</title>
-        <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </head>
- <body class="bg-secondary">
- <div class="container">
- <div class="row">
- <div class="col-md-4 m-auto mt-5 shadow p-3 bg-white">
- <form action="authentication.php" method="post">
- <h3 class="text-center">Login System</h3>
- <hr>
- <div class="input-group mb-3">
- <span class="input-group-text">
- <i class="bi bi-person-fill"></i>
- </span>
-<input type="text" class="form-control" name="username"
-placeholder="username">
+<form action="modul/akun/aksi_akun.php?act=insert" method="post">
+<div class="card mb-3">
+     <div class="card-body">
+ <form action="" method="post">
+ <div class="row mb-3">
+ <div class="col-md-4">
+ <label class="form-label" for="nama_akun">Nama akun</label>
+ <input type="text" class="form-control" name="nama_akun">
  </div>
- <div class="input-group mb-3">
- <span class="input-group-text">
- <i class="bi bi-key-fill"></i>
- </span>
- <input type="password" class="form-control" name="password"
-placeholder="password">
+ <div class="col-md-4">
+ <label class="form-label" for="jenis_akun">Jenis akun</label>
+ <input type="text" class="form-control" name="jenis_akun">
  </div>
- <div class="mb-3 d-grid">
- <button type="submit" class="btn btn-primary">Login</button>
+ <div class="col-md-4">
+ <label class="form-label" for="type_saldo">Type saldo</label>
+ <select class="form-select" name="type_saldo">
+ <option value="debit">Debit</option>
+ <option value="kredit">Kredit</option>
+ </select>
+ </div>
+ </div>
+ <hr class="text-secondary">
+ <div class="text-end">
+ <button type="reset" class="btn btn-secondary">Reset</button>
+ <button type="submit" class="btn btn-primary">Simpan</button>
  </div>
  </form>
- <div class="text-center">
- <small>Aplikasi Sistem Informasi Akuntansi |</small>
+ </div>
+</div>
+ <div class="card">
+ <div class="card-header">
+ <h3>Data Akun</h3>
+ </div>
+ <div class="card-body">
+ <div class="table-responsive">
+ <table class="table table-striped">
+ <thead>
+ <tr>
+ <th>#</th>
+ <th>Nama Akun</th>
+ <th>Jenis Akun</th>
+ <th>Type Saldo</th>
+ <th><i class="bi bi-gear-fill"></i></th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>1</td>
+ <td>Kas</td>
+ <td>Aset</td>
+ <td>Debit</td>
+ <td>
+ <a href="#editAkun" class="text-decoration-none" data-bstoggle="modal">
+ <i class="bi bi-pencil-square text-success"></i>
+</a>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-trash text-danger"></i>
+ </a>
+ </td>
+ <!-- Modal -->
+ <div class="modal fade" id="editAkun" tabindex="-1" arialabelledby="exampleModalLabel" aria-hidden="true">
+ <form action="" method="post">
+ <div class="modal-dialog">
+ <div class="modal-content">
+ <div class="modal-header">
+<h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Akun</h1>
+ <button type="button" class="btn-close" data-bsdismiss="modal" aria-label="Close"></button>
+ </div>
+ <div class="mb-3">
+ <label class="form-label" for="nama_akun">Namaakun</label>
+ <input type="text" class="form-control" name="nama_akun"value="Kas">
+ </div>
+ <div class="mb-3">
+ <label class="form-label" for="jenis_akun">Jenisakun</label>
+ <input type="text" class="form-control"name="jenis_akun" value="Aset">
+ </div>
+ <div class="mb-3">
+ <label class="form-label" for="type_saldo">Type saldo</label>
+ <select class="form-select" name="type_saldo">
+ <option value="debit" selected>Debit</option>
+ <option value="kredit">Kredit</option>
+ </select>
+ </div>
+ </div>
+ <div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ <button type="submit" class="btn btnprimary">Simpan</button>
  </div>
  </div>
  </div>
+ </form>
  </div>
- <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
- </body>
- </html>
-  <body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
-<?php
-}
-?>
-  
-  </body>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td>Piutang Usaha</td>
+ <td>Aset</td>
+ <td>Debit</td>
+ <td>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-pencil-square text-success"></i>
+ </a>
+ <a href="" class="text-decoration-none">
+     <i class="bi bi-trash text-danger"></i>
+ </a>
+ </td>
+ </tr>
+ <tr>
+ <td>3</td>
+ <td>Perlengkapan</td>
+ <td>Aset</td>
+ <td>Debit</td>
+ <td>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-pencil-square text-success"></i>
+ </a>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-trash text-danger"></i>
+ </a>
+ </td>
+ </tr>
+<tr>
+ <td>4</td>
+ <td>Utang Usaha</td>
+ <td>Kewajiban</td>
+ <td>Kredit</td>
+ <td>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-pencil-square text-success"></i>
+ </a>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-trash text-danger"></i>
+ </a>
+ </td>
+ </tr>
+ <tr>
+ <td>5</td>
+ <td>Ekuitas</td>
+ <td>Modal</td>
+ <td>Kredit</td>
+ <td>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-pencil-square text-success"></i>
+ </a>
+ <a href="" class="text-decoration-none">
+ <i class="bi bi-trash text-danger"></i>
+ </a>
+ </td>
+ </tr>
+ </form>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
